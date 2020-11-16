@@ -37,7 +37,7 @@ Positive reviews have an equal distribution across all topics while negative rev
 
 Analysis has value added for product design team as well as customer experience - as demonstrated in recommender app - [Lululemon Review Curator](https://share.streamlit.io/ajc356/lululemon_reviews_nlp_insights/main/review_curator.py).
 
-The Lululemon Review Curator app provides prospective customers a curated collection of reviews specifically tailored to their unique product needs in order to save time sifting through hundreds of reviews written by customers with different needs.  
+**Lululemon Review Curator** app provides prospective customers a curated collection of reviews specifically tailored to their unique product needs in order to save time sifting through hundreds of reviews written by customers with different needs.  
 
 
 **Technologies Used**
