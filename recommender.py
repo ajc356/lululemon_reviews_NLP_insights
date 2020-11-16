@@ -18,48 +18,29 @@ def Review_Recommender(final_df, product, num=1, exp=1, size=1, support=1,
     # limit to product specified by user
     
     small_prod = only_prod[['product_name','Topic_0', 'Topic_1', 'Topic_2', 
-    'Topic_3', 'Topic_4','Topic_5']]
+    'Topic_3', 'Topic_4','Topic_5']] #remove extraneous columns for calculating
+    # cosine similarity below 
 
-    average_review  = small_prod.mean()
+    average_review  = small_prod.mean() # find average review by taking the finding
+    # the mean of the small_prod DF
 
-    for i in average_review.index:
-        if str(i) == 'Topic_0':
-            weight = exp
-        elif str(i) == 'Topic_1':
-            weight = size
-        elif str(i) == 'Topic_2':
-            weight =  support
-        elif str(i) == 'Topic_3':
-            weight = style
-        elif str(i) == 'Topic_4':
-            weight = comfort
-        elif str(i)== 'Topic_5':
-            weight = performance
-        else:
-            weight = 1
+    # apply topic weights to transform average review into user specific review
+    average_review = average_review.multiply([exp, size, support, style, comfort, performance])
+    user_vector = average_review.values.reshape(1,-1) 
     
-        average_review[str(i)]  = average_review[str(i)]*weight
-        user_vector = average_review.values.reshape(1,-1)
-    
-    #compare the average review --now manipulated with user weights to be the 
-    # user vector, to the outlet vectors in the dataframe
+    #compare the user_vector to each review in the small_prod dataframe calculating
+    # their level of similarity with cosine_similarity and storing values in list
     similarity_matrix = []
-    #loop through each row in small_prod, computing the cosine similarity between
-    # said row and the user vector(average_review)    
-    for index, row in small_prod.iloc[: ,1: ].iterrows():
-        outlet_vector = row.values.reshape(1,-1)
-        #calculate cosine similarity
-        similarity_score = cosine_similarity(user_vector, outlet_vector)
-        #append each cosine simiilarity score onto our list
-        similarity_matrix.append(similarity_score)
+    similarity_matrix = cosine_similarity(small_prod.iloc[:,1:], user_vector)
         
-    #use similarity scores to find the top k reviews most similar to the user vector
-    holder = np.array(similarity_matrix)
-    indx = heapq.nlargest(num, range(len(holder)), holder.take)
+    # use similarity scores to find the top k reviews most similar to the user 
+    # vector and then identify the indexes for those k reviews which can then be 
+    # applied to the only_prod DF to access the review content which was not 
+    # included in the small_prod DF
+    indx = heapq.nlargest(num, range(len(similarity_matrix)), similarity_matrix.take)
 
     co = []
     pr = []
-
     for i in indx: 
         co.append(only_prod.iloc[i]['content'])
         pr.append(only_prod.iloc[i]['product_name'])

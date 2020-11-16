@@ -99,7 +99,8 @@ num = st.number_input('How many reviews would you like to view?', min_value=1, m
 
 
 content, prod = Review_Recommender(data, product=product, num=num,
-	 # exp=int(exp), 
+	 # exp=int(exp[0]),  # decide not to include expectations vs experience as
+	 # aspect of review curatior 
 	 size=int(size[0]), 
 	 support=int(support[0]), 
 	 style=int(style[0]), 
@@ -107,11 +108,11 @@ content, prod = Review_Recommender(data, product=product, num=num,
 	 performance=int(performance[0]))
 
 def diplay(my_input):
-	my_thing = " "
+	long_string = " "
 	for i in range(len(my_input)):
-		my_thing + '- ' + (my_input[i])
+		long_string + '- ' + (my_input[i])
 		# my_thing + '-'
-	return my_thing
+	return long_string
 
 st.write('''
 #### Your curated reviews of:
@@ -120,5 +121,5 @@ st.write('''
 st.write(f"{prod[-1]}")
 
 
-wot = diplay(content)
+output = diplay(content)
 
