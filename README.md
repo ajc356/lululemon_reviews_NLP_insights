@@ -10,7 +10,7 @@ Lululemon customers are known for writing detailed product reviews aimed at givi
 
 **Objective** 
 
-Efficiently deriving actionable insights from all online reviews of all 13 of lululemon's best-selling sports bras using natural language processing and unsupervised learning.
+Natural language processing & unsupervised learning exploration of customer reviews of lululemon’s best-selling sports bras to derive actionable insights for product development and management team and develop a recommender system to provide a curated collection of reviews specifically tailored to customer product needs.
 
 **Data Sources** 
 
@@ -38,7 +38,6 @@ Positive reviews have an equal distribution across all topics while negative rev
 Analysis has value added for product design team as well as customer experience - as demonstrated in recommender app - [Lululemon Review Curator](https://share.streamlit.io/ajc356/lululemon_reviews_nlp_insights/main/review_curator.py).
 
 **Lululemon Review Curator** app provides prospective customers a curated collection of reviews specifically tailored to their unique product needs in order to save time sifting through hundreds of reviews written by customers with different needs.  
-
 
 **Technologies Used**
 
