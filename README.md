@@ -35,7 +35,8 @@ Final model uses TFIDF and NMF and selects 6 core topics using  scree, cumulativ
 
 Positive reviews have an equal distribution across all topics while negative reviews are overwhelmingly concerned with product performance, size/fit as well as how the customer’s experience with the product compares with their expectations. 
 
-Analysis has value added for product design team as well as customer experience - as demonstrated in Streamlit app - [Lululemon Review Curator] (https://share.streamlit.io/ajc356/lululemon_reviews_nlp_insights/main/review_curator.py ). 
+Analysis has value added for product design team as well as customer experience - as demonstrated in Streamlit app - [Lululemon Review Curator](https://share.streamlit.io/ajc356/lululemon_reviews_nlp_insights/main/review_curator.py). 
+
 
 **Technologies Used**
 
