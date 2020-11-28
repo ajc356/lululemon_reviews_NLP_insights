@@ -1,4 +1,4 @@
-# Actionable Insights from Lululemon Reviews
+# Actionable Insights from Lululemon Reviews [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/ajc356/lululemon_reviews_nlp_insights/main/review_curator.py)
 
 Amanda Cheney  
 Metis Project 4  
